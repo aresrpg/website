@@ -11,11 +11,12 @@
   page_6_mobile
   page_7_mobile
 .root(v-else)
-  img.launch_app(@click="open_app" src="../assets/treasure-chest.png")
+  //- img.launch_app(@click="open_app" src="../assets/treasure-chest.png")
+  launch_app_btn
   lang_selector
   .gold_line
   hero(:page="selected_page" :scroller="Scroller")
-  news_layer
+  //- news_layer
   page_1_desktop(ref="trailer")
   page_2_desktop(ref="classes")
   page_3_desktop(ref="gameplay")
@@ -48,6 +49,7 @@ import page_4_desktop from '../components/page_4.desktop.vue';
 import page_5_desktop from '../components/page_5.desktop.vue';
 import page_6_desktop from '../components/page_6.desktop.vue';
 import footer_desktop from '../components/footer.desktop.vue';
+import launch_app_btn from "../components/launch_app_btn.vue"
 
 const logged = ref(false);
 const wallet = ref({});

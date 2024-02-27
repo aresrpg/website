@@ -12,6 +12,7 @@ const langs = [
 const i18n = useI18n();
 const selected = ref(langs.find(lang => i18n.locale.value === lang.locale));
 const select = ({ locale }) => {
+  console.log('asdasdasd',locale);
   i18n.locale.value = locale;
   selected.value = langs.find(lang => locale === lang.locale);
 };
@@ -27,8 +28,8 @@ const select = ({ locale }) => {
 <style lang="stylus" scoped>
 .langs
   position fixed
-  z-index 10
-  top .25em
+  z-index 12
+  top .7em
   right .5em
   padding .25em
   border-radius 5px

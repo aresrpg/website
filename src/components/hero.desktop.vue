@@ -60,37 +60,160 @@ onMounted(() => {
 onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
 </script>
 
-<template lang="pug">
-.container
-  .grain
-  .fog
-  img.logo(ref="logo" src="../assets/logo.png")
-  .ip(
-    ref="ip"
-    v-clipboard:copy="'play.aresrpg.world'"
-    v-clipboard:success="on_copy"
-    ) {{ t('ip') }}
-  nav(ref="nav")
-    .trailer(@click="props.scroller.trailer" :class="{ selected: props.page === 'trailer' }") {{ t('trailer') }}
-    .class(@click="props.scroller.classes" :class="{ selected: props.page === 'classes' }") {{ t('class') }}
-    .game(@click="props.scroller.gameplay" :class="{ selected: props.page === 'gameplay' }") {{ t('game') }}
-    .server(@click="props.scroller.server" :class="{ selected: props.page === 'server' }") {{ t('server') }}
-    .assets(@click="props.scroller.assets" :class="{ selected: props.page === 'assets' }") {{ t('assets') }}
-    .layers(@click="props.scroller.worlds" :class="{ selected: props.page === 'worlds' }") {{ t('layers') }}
-  .left
-    .desc(ref="desc") {{ t('desc') }}
-    .title(ref="title") {{ t('title') }}
-  scroll-parallax.right(direction="y" speed="0.3")
-    img(src="../assets/ice_dragon.dragon.gif")
+<template>
+  <div class="hero">
+    <img ref="logo" class="logo" src="../assets/logo.svg" alt="">
+    <div ref="ip" class="ip" v-clipboard:copy="'play.aresrpg.world'" v-clipboard:success="on_copy">{{ t('ip') }}</div>
+    <div class="iron-grid"></div>
+    <div class="fog"></div>
+    <nav ref="nav" id="nav">
+        <div class="trailer" @click="props.scroller.trailer" :class="{ selected: props.page === 'trailer' }">{{ t('trailer') }}</div>
+        <div class="class" @click="props.scroller.classes" :class="{ selected: props.page === 'classes' }">{{ t('class') }}</div>
+        <div class="game" @click="props.scroller.gameplay" :class="{ selected: props.page === 'gameplay' }">{{ t('game') }}</div>
+        <div class="server" @click="props.scroller.server" :class="{ selected: props.page === 'server' }">{{ t('server') }}</div>
+        <div class="assets" @click="props.scroller.assets" :class="{ selected: props.page === 'assets' }">{{ t('assets') }}</div>
+        <div class="layers" @click="props.scroller.worlds" :class="{ selected: props.page === 'worlds' }">{{ t('layers') }}</div>
+    </nav>
+
+    <div class="text-content">
+      <div>
+        <h1 ref="title">{{ t('title') }}</h1>
+        <p ref="desc">{{ t('desc') }}</p>
+      </div>
+    </div>
+    <img class="flying-dragon" src="../assets/ice_dragon.dragon.gif" alt="">
+
+  </div>
 </template>
 
-<style lang="stylus" scoped>
-material-2 = drop-shadow(0 2px 6px rgba(black .15)) drop-shadow(0 1px 2px rgba(black, .3))
-classic = 1px 2px 3px black
+<style scoped>
+  .logo{
+    position: absolute;
+    z-index: 10;
+    top: 20px;
+    left: 1%;
+  }
+  .hero{
+    height: 100%;
+    min-height: 100vh;
+    background: url('../assets/ice_dragon.gif') no-repeat center center/cover;
+    position: relative;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
 
-.container
+    display: flex;
+    align-items: center;
+  }
+  .iron-grid{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/iron-grid.png');
+    opacity: 25%;
+  }
+  .fog{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: url('../assets/fog.png') no-repeat center center/cover;
+    opacity: 85%;
+  }
+  .flying-dragon{
+    position: absolute;
+    max-width: 100%;
+    right: 3rem;
+  }
+  .text-content{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    z-index: 5;
+  }
+  .text-content > div{
+    width: 59%;
+  }
+  .text-content h1{
+    color: #8787F4;
+    font-size:  clamp(3.75rem, 5.5vw, 9.75rem);
+    text-shadow: 
+        -1.5px -1.5px 0 black,  
+        1.5px -1.5px 0 black,
+        -1.5px 1.5px 0 black,
+        1.5px 1.5px 0 black;
+    /* stroke: 1.5px black;
+    -webkit-text-stroke: 1.5px black; */
+  }
+  .text-content p{
+    font-size: 1.15rem;
+    line-height: 37px;
+    color: #261F48;
+    opacity: 75%;
+    stroke: 0.5px black;
+    -webkit-text-stroke: 0.5px black;
+    margin-top: 0.4rem;
+    width: 80%;
+  }
+
+  nav {
+    position: fixed;
+    top: 5.7em;
+    right: 1em;
+    color: white;
+    text-transform: uppercase;
+    align-items: flex-end;
+    font-size: 0.7em;
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 10;
+    text-shadow: 1px 2px 3px black;
+  }
+
+  nav > div {
+      cursor: pointer;
+      opacity: 0.7;
+  }
+
+  nav .selected {
+      position: relative;
+      opacity: 1;
+  }
+
+  nav .selected::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -50px;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 1px;
+      box-shadow: 1px 2px 3px black;
+      background: white;
+  }
+
+  .ip {
+    position: fixed;
+    top: 1em;
+    font-family: 'DM Sans';
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 2px 2px 4px #000;
+    letter-spacing: 7px;
+    font-weight: 900;
+    mix-blend-mode: difference;
+    color: white;
+    text-transform: uppercase;
+    z-index: 55;
+    cursor: pointer;
+  }
+
+
+ /* material-2 = drop-shadow(0 2px 6px rgba(black .15)) drop-shadow(0 1px 2px rgba(black, .3))
+classic = 1px 2px 3px black  */
+
+/* .container
   width 100%
-  height 100vh
+  min-height 100vh
   border-top-left-radius 30px
   border-top-right-radius 30px
   background url('../assets/ice_dragon.gif') center / cover
@@ -101,6 +224,7 @@ classic = 1px 2px 3px black
   align-items center
   position relative
   overflow hidden
+  background-attachment: fixed;
   .right
     position absolute
     top 0
@@ -149,7 +273,7 @@ classic = 1px 2px 3px black
     right 0
     bottom 0
     background url('../assets/iron-grid.png') repeat
-    opacity .2
+    opacity .3
     z-index 2
   .logo
     position absolute
@@ -209,5 +333,6 @@ classic = 1px 2px 3px black
     height 100vh
     z-index 3
     display flex
-    background url('../assets/fog.png') bottom / cover
+    opacity .85
+    background url('../assets/fog.png') bottom / cover */
 </style>
