@@ -26,18 +26,18 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
+import { useI18n } from 'vue-i18n'
 
-import agility from '../assets/stats/agility.png';
-import chance from '../assets/stats/chance.png';
-import intelligence from '../assets/stats/intelligence.png';
-import wisdom from '../assets/stats/wisdom.png';
-import raw_damage from '../assets/stats/raw_damage.png';
-import strength from '../assets/stats/strength.png';
-import vitality from '../assets/stats/health.png';
-import flying_soul from '../assets/flying_soul.jpg';
+import agility from '../assets/stats/agility.png'
+import chance from '../assets/stats/chance.png'
+import intelligence from '../assets/stats/intelligence.png'
+import wisdom from '../assets/stats/wisdom.png'
+import raw_damage from '../assets/stats/raw_damage.png'
+import strength from '../assets/stats/strength.png'
+import vitality from '../assets/stats/health.png'
+import flying_soul from '../assets/flying_soul.jpg'
 
-import Tabs from './tabs.vue';
+import Tabs from './tabs.vue'
 
 const spell = {
   name: 'Flying Soul',
@@ -153,128 +153,128 @@ const spell = {
       ],
     },
   ],
-};
+}
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const damage_text = effect => {
+const damage_text = (effect) => {
   return effect.min === effect.max
     ? `${effect.min} damages`
-    : `${effect.min} to ${effect.max} damages`;
-};
+    : `${effect.min} to ${effect.max} damages`
+}
 
-const heal_text = effect => {
+const heal_text = (effect) => {
   return effect.min === effect.max
     ? `${effect.min}`
-    : `${effect.min} to ${effect.max}`;
-};
+    : `${effect.min} to ${effect.max}`
+}
 
-const add_text = effect => {
+const add_text = (effect) => {
   return effect.min === effect.max
     ? `${effect.min} ${effect.statistic}`
-    : `${effect.min} to ${effect.max} ${effect.statistic}`;
-};
+    : `${effect.min} to ${effect.max} ${effect.statistic}`
+}
 
-const has_critical = data => data.can_critical;
-const critical_chance = data => `1/${data.critical_chance}`;
+const has_critical = (data) => data.can_critical
+const critical_chance = (data) => `1/${data.critical_chance}`
 
-const effects_tab = data => {
-  if (!data.base_effects.length) return;
+const effects_tab = (data) => {
+  if (!data.base_effects.length) return
   return {
     Effects: data.base_effects,
     ...(has_critical(data) && { Critical: data.critical_effects }),
-  };
-};
+  }
+}
 
-const turn_text = turns => {
-  if (!turns) return;
-  if (turns === 1) return t('one_turn');
-  return `${turns} ${t('turns')}`;
-};
+const turn_text = (turns) => {
+  if (!turns) return
+  if (turns === 1) return t('one_turn')
+  return `${turns} ${t('turns')}`
+}
 
 const target = ({ target }) => {
-  if (target === 'self') return t('on_yourself');
-  if (target === 'enemy') return t('all_ennemies');
-  if (target === 'ally') return t('all_allies');
-};
+  if (target === 'self') return t('on_yourself')
+  if (target === 'enemy') return t('all_ennemies')
+  if (target === 'ally') return t('all_allies')
+}
 
 const trap_modifier = ({ modifier }) => {
-  if (modifier === 'heal') return t('trap_heals');
-  if (modifier === 'add_damage') return t('trap_add_damage');
-  if (modifier === 'cancel_damage') return t('trap_cancel_damage');
-};
+  if (modifier === 'heal') return t('trap_heals')
+  if (modifier === 'add_damage') return t('trap_add_damage')
+  if (modifier === 'cancel_damage') return t('trap_cancel_damage')
+}
 
-const has_range = ({ range }) => !!range[1];
+const has_range = ({ range }) => !!range[1]
 
-const element_to_icon = element => {
+const element_to_icon = (element) => {
   switch (element) {
     case 'air':
-      return agility;
+      return agility
     case 'water':
-      return chance;
+      return chance
     case 'fire':
-      return intelligence;
+      return intelligence
     case 'earth':
-      return strength;
+      return strength
   }
-};
+}
 
-const statistic_to_icon = statistic => {
+const statistic_to_icon = (statistic) => {
   switch (statistic) {
     case 'agility':
-      return agility;
+      return agility
     case 'chance':
-      return chance;
+      return chance
     case 'intelligence':
-      return intelligence;
+      return intelligence
     case 'strength':
-      return strength;
+      return strength
     case 'wisdom':
-      return wisdom;
+      return wisdom
     case 'vitality':
-      return vitality;
+      return vitality
     case 'damage':
-      return raw_damage;
+      return raw_damage
   }
-};
+}
 
-const element_to_color = element => {
+const element_to_color = (element) => {
   switch (element) {
     case 'air':
-      return '#66BB6A';
+      return '#66BB6A'
     case 'water':
-      return '#42A5F5';
+      return '#42A5F5'
     case 'fire':
-      return '#EF5350';
+      return '#EF5350'
     case 'earth':
-      return '#8D6E63';
+      return '#8D6E63'
     case 'raw':
-      return '#EEEEEE';
+      return '#EEEEEE'
   }
-};
+}
 
-const statistic_to_color = statistic => {
+const statistic_to_color = (statistic) => {
   switch (statistic) {
     case 'agility':
-      return '#66BB6A';
+      return '#66BB6A'
     case 'chance':
-      return '#42A5F5';
+      return '#42A5F5'
     case 'intelligence':
-      return '#EF5350';
+      return '#EF5350'
     case 'strength':
-      return '#8D6E63';
+      return '#8D6E63'
     case 'wisdom':
-      return '#AB47BC';
+      return '#AB47BC'
     case 'vitality':
-      return '#E91E63';
+      return '#E91E63'
     case 'damage':
-      return '#EEEEEE';
+      return '#EEEEEE'
   }
-};
+}
 
 const chance_text = ({ chance }) => {
-  if (chance !== 100) return `${chance}% chance`;
-};
+  if (chance !== 100) return `${chance}% chance`
+}
 </script>
 
 <template lang="pug">

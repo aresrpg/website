@@ -35,26 +35,26 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import bg from '../assets/art/aether.jpeg';
-import hammer from '../assets/hammer.png';
-import metaverse from '../assets/metaverse.png';
-import shield from '../assets/sword-shield.png';
-import github from '../assets/github.png';
-import { fade_down } from '../core/anime';
+import bg from '../assets/art/aether.jpeg'
+import hammer from '../assets/hammer.png'
+import metaverse from '../assets/metaverse.png'
+import shield from '../assets/sword-shield.png'
+import github from '../assets/github.png'
+import { fade_down } from '../core/anime'
 
-import feature_card from './feature_card.inline.vue';
-import page_container from './page_container.desktop.vue';
+import feature_card from './feature_card.inline.vue'
+import page_container from './page_container.desktop.vue'
 
-const { t } = useI18n();
-const f1 = ref();
-const f2 = ref();
-const f3 = ref();
-const f5 = ref();
-const title = ref();
-const desc = ref();
+const { t } = useI18n()
+const f1 = ref()
+const f2 = ref()
+const f3 = ref()
+const f5 = ref()
+const title = ref()
+const desc = ref()
 
 const animations = [
   fade_down(f1, 100),
@@ -63,12 +63,12 @@ const animations = [
   fade_down(f5, 500),
   fade_down(title),
   fade_down(desc, 100),
-];
+]
 
 onMounted(() => {
-  animations.forEach(animation => animation.mount());
-});
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+  animations.forEach((animation) => animation.mount())
+})
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">

@@ -24,25 +24,25 @@ en:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { useToast } from 'vue-toastification';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { useToast } from 'vue-toastification'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import { anime, appear_right, fade_down } from '../core/anime';
+import { anime, appear_right, fade_down } from '../core/anime'
 
-import app_button from './app_button.vue';
+import app_button from './app_button.vue'
 
-const toast = useToast();
-const { t } = useI18n();
-const props = defineProps(['page', 'scroller']);
+const toast = useToast()
+const { t } = useI18n()
+const props = defineProps(['page', 'scroller'])
 
-const on_copy = () => toast.info(t('copy'));
+const on_copy = () => toast.info(t('copy'))
 
-const ip = ref();
-const logo = ref();
-const nav = ref();
-const desc = ref();
-const title = ref();
+const ip = ref()
+const logo = ref()
+const nav = ref()
+const desc = ref()
+const title = ref()
 const animations = [
   anime({
     translateY: ['-100%', 0],
@@ -54,16 +54,16 @@ const animations = [
   appear_right(nav, 2000),
   fade_down(desc, 300),
   fade_down(title, 100),
-];
+]
 
 const open_app = () => {
-  window.open('https://app.aresrpg.world', '_blank');
-};
+  window.open('https://app.aresrpg.world', '_blank')
+}
 
 onMounted(() => {
-  animations.forEach(animation => animation.mount());
-});
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+  animations.forEach((animation) => animation.mount())
+})
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">

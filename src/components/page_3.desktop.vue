@@ -118,32 +118,32 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import { fade_left } from '../core/anime';
-import snow from '../assets/art/snow-sakura.jpg';
+import { fade_left } from '../core/anime'
+import snow from '../assets/art/snow-sakura.jpg'
 
-import spellCard from './spell_card.vue';
-import page_container from './page_container.desktop.vue';
+import spellCard from './spell_card.vue'
+import page_container from './page_container.desktop.vue'
 
-const { t } = useI18n();
-const title = ref();
-const bar = ref();
-const desc = ref();
+const { t } = useI18n()
+const title = ref()
+const bar = ref()
+const desc = ref()
 
-const selected = ref(0);
+const selected = ref(0)
 
 const animations = [
   fade_left(title, 100),
   fade_left(bar, 200),
   fade_left(desc, 300),
-];
+]
 
 onMounted(() => {
-  animations.forEach(animation => animation.mount());
-});
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+  animations.forEach((animation) => animation.mount())
+})
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">

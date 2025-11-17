@@ -22,10 +22,10 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import app_button from '../components/app_button.vue';
+import { useI18n } from 'vue-i18n'
+import app_button from '../components/app_button.vue'
 
-const { t } = useI18n();
+const { t } = useI18n()
 </script>
 
 <style lang="stylus" scoped>

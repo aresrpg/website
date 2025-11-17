@@ -37,26 +37,26 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-import hammer from '../assets/hammer.png';
-import metaverse from '../assets/metaverse.png';
-import shield from '../assets/sword-shield.png';
-import github from '../assets/github.png';
-import { appear_left, fade_up } from '../core/anime';
+import hammer from '../assets/hammer.png'
+import metaverse from '../assets/metaverse.png'
+import shield from '../assets/sword-shield.png'
+import github from '../assets/github.png'
+import { appear_left, fade_up } from '../core/anime'
 
-import feature from './feature_card.vue';
-import card from './feature_card.big.vue';
+import feature from './feature_card.vue'
+import card from './feature_card.big.vue'
 
-const { t } = useI18n();
-const c1 = ref();
-const c2 = ref();
-const c3 = ref();
-const c4 = ref();
+const { t } = useI18n()
+const c1 = ref()
+const c2 = ref()
+const c3 = ref()
+const c4 = ref()
 
-const s1 = ref();
-const s2 = ref();
+const s1 = ref()
+const s2 = ref()
 
 const animations = [
   appear_left(s1, 100),
@@ -65,10 +65,10 @@ const animations = [
   fade_up(c2, 200),
   fade_up(c3, 300),
   fade_up(c4, 400),
-];
+]
 
-onMounted(() => animations.forEach(animation => animation.mount()));
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+onMounted(() => animations.forEach((animation) => animation.mount()))
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">

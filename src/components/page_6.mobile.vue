@@ -12,25 +12,25 @@ en:
 </i18n>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-import { fade_up } from '../core/anime';
+import { fade_up } from '../core/anime'
 
-const c1 = ref();
-const c2 = ref();
-const c3 = ref();
+const c1 = ref()
+const c2 = ref()
+const c3 = ref()
 
-const { t } = useI18n();
-const animations = [fade_up(c1, 100), fade_up(c2, 100), fade_up(c3, 100)];
+const { t } = useI18n()
+const animations = [fade_up(c1, 100), fade_up(c2, 100), fade_up(c3, 100)]
 const scroll_top = () =>
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
-  });
+  })
 
-onMounted(() => animations.forEach(animation => animation.mount()));
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+onMounted(() => animations.forEach((animation) => animation.mount()))
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">
