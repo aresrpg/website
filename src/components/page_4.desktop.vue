@@ -71,36 +71,32 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import bg from '../assets/art/voxel-beach.jpeg';
-import eagle from '../assets/eagle.png';
-import pet from '../assets/wolf.png';
-import items from '../assets/helmetsword.png';
-import relics from '../assets/relic.png';
-import cards from '../assets/cards.png';
-import shield from '../assets/shield.png';
-import { fade_up } from '../core/anime';
+import bg from '../assets/art/voxel-beach.jpeg'
+import eagle from '../assets/eagle.png'
+import pet from '../assets/wolf.png'
+import items from '../assets/helmetsword.png'
+import relics from '../assets/relic.png'
+import cards from '../assets/cards.png'
+import shield from '../assets/shield.png'
+import { fade_up } from '../core/anime'
 
-import feature_card from './feature_card.big.desktop.vue';
-import page_container from './page_container.desktop.vue';
+import feature_card from './feature_card.big.desktop.vue'
+import page_container from './page_container.desktop.vue'
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const title = ref();
-const line = ref();
-const desc = ref();
+const title = ref()
+const line = ref()
+const desc = ref()
 
-const animations = [
-  fade_up(title, 100),
-  fade_up(line, 200),
-  fade_up(desc, 300),
-];
+const animations = [fade_up(title, 100), fade_up(line, 200), fade_up(desc, 300)]
 onMounted(() => {
-  animations.forEach(animation => animation.mount());
-});
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+  animations.forEach((animation) => animation.mount())
+})
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">

@@ -1,1 +1,4 @@
-.eslintrc
+coverage/
+node_modules/
+dist/
+*.log

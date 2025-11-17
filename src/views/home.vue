@@ -25,46 +25,46 @@
 </template>
 
 <script setup>
-import useBreakpoints from 'vue-next-breakpoints';
-import { provide, ref, onMounted, onBeforeUnmount } from 'vue';
+import useBreakpoints from 'vue-next-breakpoints'
+import { provide, ref, onMounted, onBeforeUnmount } from 'vue'
 
-import hero from '../components/hero.desktop.vue';
-import hero_mobile from '../components/hero.mobile.vue';
-import page_1_mobile from '../components/page_1.mobile.vue';
-import page_2_mobile from '../components/page_2.mobile.vue';
-import page_3_mobile from '../components/page_3.mobile.vue';
-import page_4_mobile from '../components/page_4.mobile.vue';
-import page_5_mobile from '../components/page_5.mobile.vue';
-import page_6_mobile from '../components/page_6.mobile.vue';
-import page_7_mobile from '../components/page_7.mobile.vue';
-import lang_selector from '../components/lang_selector.vue';
-import scroll_indicator from '../components/scroll_indicator.vue';
-import news_layer from '../components/layer_news.desktop.vue';
-import page_1_desktop from '../components/page_1.desktop.vue';
-import page_2_desktop from '../components/page_2.desktop.vue';
-import page_3_desktop from '../components/page_3.desktop.vue';
-import page_4_desktop from '../components/page_4.desktop.vue';
-import page_5_desktop from '../components/page_5.desktop.vue';
-import page_6_desktop from '../components/page_6.desktop.vue';
-import footer_desktop from '../components/footer.desktop.vue';
+import hero from '../components/hero.desktop.vue'
+import hero_mobile from '../components/hero.mobile.vue'
+import page_1_mobile from '../components/page_1.mobile.vue'
+import page_2_mobile from '../components/page_2.mobile.vue'
+import page_3_mobile from '../components/page_3.mobile.vue'
+import page_4_mobile from '../components/page_4.mobile.vue'
+import page_5_mobile from '../components/page_5.mobile.vue'
+import page_6_mobile from '../components/page_6.mobile.vue'
+import page_7_mobile from '../components/page_7.mobile.vue'
+import lang_selector from '../components/lang_selector.vue'
+import scroll_indicator from '../components/scroll_indicator.vue'
+import news_layer from '../components/layer_news.desktop.vue'
+import page_1_desktop from '../components/page_1.desktop.vue'
+import page_2_desktop from '../components/page_2.desktop.vue'
+import page_3_desktop from '../components/page_3.desktop.vue'
+import page_4_desktop from '../components/page_4.desktop.vue'
+import page_5_desktop from '../components/page_5.desktop.vue'
+import page_6_desktop from '../components/page_6.desktop.vue'
+import footer_desktop from '../components/footer.desktop.vue'
 
-const logged = ref(false);
-const wallet = ref({});
-const root = ref();
-const scrolled_index = ref(0);
+const logged = ref(false)
+const wallet = ref({})
+const root = ref()
+const scrolled_index = ref(0)
 
-const motivation = ref();
-const gameplay = ref();
-const worlds = ref();
-const economy = ref();
-const technology = ref();
-const assets = ref();
+const motivation = ref()
+const gameplay = ref()
+const worlds = ref()
+const economy = ref()
+const technology = ref()
+const assets = ref()
 
-const scroll_into_view = ref => () =>
+const scroll_into_view = (ref) => () =>
   ref.value.$el.scrollIntoView({
     behavior: 'smooth',
     block: 'start',
-  });
+  })
 const Scroller = {
   motivation: scroll_into_view(motivation),
   gameplay: scroll_into_view(gameplay),
@@ -72,45 +72,45 @@ const Scroller = {
   economy: scroll_into_view(economy),
   technology: scroll_into_view(technology),
   assets: scroll_into_view(assets),
-};
+}
 
-const icon_size = '2x';
-const selected_page = ref('trailer');
+const icon_size = '2x'
+const selected_page = ref('trailer')
 
-provide('logged', logged);
-provide('wallet', wallet);
+provide('logged', logged)
+provide('wallet', wallet)
 
 const breakpoints = useBreakpoints({
   mobile: 1144,
-});
+})
 
 const on_scroll = () =>
-  (scrolled_index.value = Math.ceil(window.scrollY / window.innerHeight));
+  (scrolled_index.value = Math.ceil(window.scrollY / window.innerHeight))
 
 const observe = (ref, name) => {
   const observer = new IntersectionObserver(
     ([entry]) => {
-      if (entry.isIntersecting) selected_page.value = name;
+      if (entry.isIntersecting) selected_page.value = name
     },
-    { threshold: [0.5] },
-  );
-  if (ref.value?.$el) observer.observe(ref.value.$el);
-};
+    { threshold: [0.5] }
+  )
+  if (ref.value?.$el) observer.observe(ref.value.$el)
+}
 
 onMounted(() => {
-  window.addEventListener('scroll', on_scroll);
-  observe(motivation, 'motivation');
-  observe(worlds, 'worlds');
-  observe(gameplay, 'gameplay');
-  observe(economy, 'economy');
-  observe(technology, 'technology');
-  observe(assets, 'assets');
-});
-onBeforeUnmount(() => window.removeEventListener('scroll', on_scroll));
+  window.addEventListener('scroll', on_scroll)
+  observe(motivation, 'motivation')
+  observe(worlds, 'worlds')
+  observe(gameplay, 'gameplay')
+  observe(economy, 'economy')
+  observe(technology, 'technology')
+  observe(assets, 'assets')
+})
+onBeforeUnmount(() => window.removeEventListener('scroll', on_scroll))
 
 const open_app = () => {
-  window.open('https://app.aresrpg.world', '_blank');
-};
+  window.open('https://app.aresrpg.world', '_blank')
+}
 </script>
 
 <style lang="stylus" scoped>

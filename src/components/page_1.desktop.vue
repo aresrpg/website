@@ -12,29 +12,29 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
-import Parallaxy from '@lucien144/vue3-parallaxy';
+import { useI18n } from 'vue-i18n'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import Parallaxy from '@lucien144/vue3-parallaxy'
 
-import { rotate_in, fade_up, fade_left, fade_in } from '../core/anime';
+import { rotate_in, fade_up, fade_left, fade_in } from '../core/anime'
 
-import app_button from './app_button.vue';
+import app_button from './app_button.vue'
 
-const a0 = ref();
-const a1 = ref();
-const a2 = ref();
-const a3 = ref();
-const a4 = ref();
-const a5 = ref();
-const a6 = ref();
-const a8 = ref();
+const a0 = ref()
+const a1 = ref()
+const a2 = ref()
+const a3 = ref()
+const a4 = ref()
+const a5 = ref()
+const a6 = ref()
+const a8 = ref()
 
-const section_1 = ref();
-const section_2 = ref();
+const section_1 = ref()
+const section_2 = ref()
 
-const kanji = ref();
+const kanji = ref()
 
-const { t } = useI18n();
+const { t } = useI18n()
 const animations = [
   rotate_in(a0, 100),
   rotate_in(a1, 200),
@@ -47,15 +47,15 @@ const animations = [
   fade_up(section_1, 300),
   fade_left(section_2, 500),
   fade_in(kanji, 1000),
-];
+]
 onMounted(() => {
-  animations.forEach(animation => animation.mount());
-});
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+  animations.forEach((animation) => animation.mount())
+})
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 
 const open_app = () => {
-  window.open('https://app.aresrpg.world', '_blank');
-};
+  window.open('https://app.aresrpg.world', '_blank')
+}
 </script>
 
 <template lang="pug">

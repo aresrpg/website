@@ -25,21 +25,21 @@ en:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import bg from '../assets/art/openworld-1.jpeg';
-import { minimal_fade_up, appear_right } from '../core/anime';
+import bg from '../assets/art/openworld-1.jpeg'
+import { minimal_fade_up, appear_right } from '../core/anime'
 
-import page_container from './page_container.desktop.vue';
+import page_container from './page_container.desktop.vue'
 
-const { t } = useI18n();
-const div1 = ref();
-const div2 = ref();
-const div3 = ref();
+const { t } = useI18n()
+const div1 = ref()
+const div2 = ref()
+const div3 = ref()
 
-const i1 = ref();
-const i2 = ref();
+const i1 = ref()
+const i2 = ref()
 
 const animations = [
   minimal_fade_up(div1),
@@ -47,12 +47,12 @@ const animations = [
   minimal_fade_up(div3, 300),
   appear_right(i1, 100),
   appear_right(i2, 200),
-];
+]
 
 onMounted(() => {
-  animations.forEach(animation => animation.mount());
-});
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+  animations.forEach((animation) => animation.mount())
+})
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">

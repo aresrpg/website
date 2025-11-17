@@ -12,23 +12,23 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import { fade_up, fade_left, fade_in, appear_top } from '../core/anime';
+import { fade_up, fade_left, fade_in, appear_top } from '../core/anime'
 
-import app_button from './app_button.vue';
+import app_button from './app_button.vue'
 
-const t1 = ref();
-const t2 = ref();
-const t3 = ref();
-const t4 = ref();
-const t5 = ref();
-const t6 = ref();
+const t1 = ref()
+const t2 = ref()
+const t3 = ref()
+const t4 = ref()
+const t5 = ref()
+const t6 = ref()
 
-const kanji = ref();
+const kanji = ref()
 
-const { t } = useI18n();
+const { t } = useI18n()
 const animations = [
   fade_in(kanji, 200),
   fade_up(t1, 300),
@@ -37,15 +37,15 @@ const animations = [
   fade_left(t4, 500),
   fade_left(t5, 500),
   fade_left(t6, 500),
-];
+]
 onMounted(() => {
-  animations.forEach(animation => animation.mount());
-});
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+  animations.forEach((animation) => animation.mount())
+})
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 
 const open_app = () => {
-  window.open('https://app.aresrpg.world', '_blank');
-};
+  window.open('https://app.aresrpg.world', '_blank')
+}
 </script>
 
 <template lang="pug">

@@ -44,39 +44,39 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-import { appear_right, fade_in, fade_up } from '../core/anime';
-import eagle from '../assets/eagle.png';
-import helmet from '../assets/helmetsword.png';
-import skullaxe from '../assets/skullaxe.png';
-import barbarian from '../assets/barbarian.png';
-import spells from '../assets/spells.png';
-import cards from '../assets/cards.png';
-import shield from '../assets/shield.png';
-import wolf from '../assets/wolf.png';
-import egg from '../assets/svg-icon/egg.svg';
+import { appear_right, fade_in, fade_up } from '../core/anime'
+import eagle from '../assets/eagle.png'
+import helmet from '../assets/helmetsword.png'
+import skullaxe from '../assets/skullaxe.png'
+import barbarian from '../assets/barbarian.png'
+import spells from '../assets/spells.png'
+import cards from '../assets/cards.png'
+import shield from '../assets/shield.png'
+import wolf from '../assets/wolf.png'
+import egg from '../assets/svg-icon/egg.svg'
 
-import feature from './feature_card.vue';
+import feature from './feature_card.vue'
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const s1 = ref();
-const s2 = ref();
-const s3 = ref();
+const s1 = ref()
+const s2 = ref()
+const s3 = ref()
 
-const f1 = ref();
-const f2 = ref();
-const f3 = ref();
-const f4 = ref();
-const f5 = ref();
-const f6 = ref();
-const f7 = ref();
-const f8 = ref();
-const f9 = ref();
+const f1 = ref()
+const f2 = ref()
+const f3 = ref()
+const f4 = ref()
+const f5 = ref()
+const f6 = ref()
+const f7 = ref()
+const f8 = ref()
+const f9 = ref()
 
-const arrows = ref();
+const arrows = ref()
 
 const animations = [
   fade_up(s1, 100),
@@ -92,10 +92,10 @@ const animations = [
   appear_right(f8, 800),
   appear_right(f9, 900),
   fade_in(arrows, 100),
-];
+]
 
-onMounted(() => animations.forEach(animation => animation.mount()));
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+onMounted(() => animations.forEach((animation) => animation.mount()))
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">

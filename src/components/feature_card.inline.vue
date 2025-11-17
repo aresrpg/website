@@ -1,9 +1,9 @@
 <script setup>
-const { icon, title, desc } = defineProps(['icon', 'title', 'desc']);
+const { icon, title, desc } = defineProps(['icon', 'title', 'desc'])
 
 const enoki_link = () => {
-  window.open('https://enoki.mystenlabs.com/', '_blank');
-};
+  window.open('https://enoki.mystenlabs.com/', '_blank')
+}
 </script>
 
 <template lang="pug">

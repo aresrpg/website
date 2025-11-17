@@ -20,19 +20,19 @@ fr:
 </i18n>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useI18n } from 'vue-i18n'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-import { fade_down, fade_in, fade_right, fade_up } from '../core/anime';
+import { fade_down, fade_in, fade_right, fade_up } from '../core/anime'
 
-const { t } = useI18n();
-const s1 = ref();
-const s2 = ref();
-const s3 = ref();
+const { t } = useI18n()
+const s1 = ref()
+const s2 = ref()
+const s3 = ref()
 
-const c1 = ref();
-const c2 = ref();
-const c3 = ref();
+const c1 = ref()
+const c2 = ref()
+const c3 = ref()
 
 const animations = [
   fade_in(s1, 100),
@@ -41,10 +41,10 @@ const animations = [
   fade_down(c1, 100),
   fade_down(c2, 200),
   fade_down(c3, 300),
-];
+]
 
-onMounted(() => animations.forEach(animation => animation.mount()));
-onBeforeUnmount(() => animations.forEach(animation => animation.unmount()));
+onMounted(() => animations.forEach((animation) => animation.mount()))
+onBeforeUnmount(() => animations.forEach((animation) => animation.unmount()))
 </script>
 
 <template lang="pug">
